@@ -1,0 +1,23 @@
+expenses = []
+import json
+# load expenses from expenses.json file here
+# https://www.geeksforgeeks.org/read-write-and-parse-json-using-python/ (Python read JSON file)
+pass
+
+while True:
+    command = input("\nChoose command:")
+    if command == "1":
+        pass
+    if command == "e":
+        print("Exiting...")
+        break
+    name= input("name:")
+    category= input("Kadi izdevumi:")
+    sum= input("cik izdevumi:")
+    vardnica ={ 
+    "name": name,
+    "category" : category,
+    "sum": sum}
+
+    with open("sample.json", "w") as outfile:
+        json.dump(vardnica, outfile)

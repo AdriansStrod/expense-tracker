@@ -17,7 +17,7 @@
 #
 
 expenses = []
-
+import json
 # load expenses from expenses.json file here
 # https://www.geeksforgeeks.org/read-write-and-parse-json-using-python/ (Python read JSON file)
 pass
@@ -25,10 +25,40 @@ pass
 while True:
     command = input("\nChoose command:")
     if command == "1":
-        pass
+        name= input("name:")
+        category= input("Kadi izdevumi:")
+        sum= int(input("cik izdevumi:"))
+        vardnica ={ 
+            "name": name,
+            "category" : category,
+            "sum": sum
+        }
+        print(vardnica)
+        expenses.append(vardnica)
+    
+    elif command == "2":
+        print(expenses)
+    elif command == "3":
+        print("10 lielakie izdevumi:")
+        def sort_total(expense):
+            return int(expense['total'])
+        expenses.sort(key = sort_total)
+        (expenses[-11:])
+    elif command == "3":
+        print("10 lielakie izdevumi:")
+        def sort_total(expense):
+            return int(expense['total'])
+        expenses.sort(key = sort_total)
+        (expenses[:11])
     if command == "e":
         print("Exiting...")
-        break
+    break
+
+
+with open("expenses.json", "w") as outfile:
+    json.dump(expenses, outfile)
+        # https://www.w3schools.com/python
+        # https://www.w3schools.com/python
 
 # save expenses to expenses.json file here
 # https://www.geeksforgeeks.org/read-write-and-parse-json-using-python/ (Writing JSON to a file in Python)
